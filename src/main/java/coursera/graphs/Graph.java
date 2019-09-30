@@ -17,8 +17,10 @@ public class Graph {
 	}
 
 	public void addEdge(int u, int v) {
-		adjList.get(u).add(v);
-		adjList.get(v).add(u);
+		if (u != v) {
+			adjList.get(u).add(v);
+			adjList.get(v).add(u);
+		}
 	}
 
 	public Set<Integer> getAdjNodesOf(int u) {
