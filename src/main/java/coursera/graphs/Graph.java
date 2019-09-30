@@ -16,10 +16,12 @@ public class Graph {
 		}
 	}
 
-	public void addEdge(int u, int v) {
+	public void addEdge(int u, int v) throws Exception {
 		if (u != v) {
 			adjList.get(u).add(v);
 			adjList.get(v).add(u);
+		} else {
+			throw new Exception("An edge from a node to itself is not allowed");
 		}
 	}
 
