@@ -14,4 +14,17 @@ public class Digraph extends Graph {
 		}
 	}
 
+	public Digraph reverse() {
+		Digraph revGraph = new Digraph(nodes);
+		for (int u = 0; u < nodes; u++) {
+			for (int v : getAdjNodesOf(u)) {
+				try {
+					revGraph.addEdge(v, u);
+				} catch (Exception e) {
+					System.err.println(e);
+				}
+			}
+		}
+		return revGraph;
+	}
 }
