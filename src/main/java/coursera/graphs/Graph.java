@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 public class Graph {
-	private int nodes = 0;
-	private List<Set<Integer>> adjList = new ArrayList<Set<Integer>>();
+	protected int nodes = 0;
+	protected List<Set<Integer>> adjList = new ArrayList<Set<Integer>>();
 
 	public Graph(int nodes) {
 		this.nodes = nodes;
