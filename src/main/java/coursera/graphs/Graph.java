@@ -50,4 +50,16 @@ public class Graph {
 		return reachedHashSet;
 	}
 
+	public String toString() {
+		StringBuffer sBuffer = new StringBuffer();
+		sBuffer.append(nodes + " nodes\n");
+		for (int u = 0; u < nodes; u++) {
+			sBuffer.append(u + " ->");
+			for (int v : adjList.get(u)) {
+				sBuffer.append(" " + v);
+			}
+			sBuffer.append("\n");
+		}
+		return sBuffer.toString();
+	}
 }
