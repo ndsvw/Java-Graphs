@@ -49,5 +49,13 @@ public class GeneralTesting {
 		Graph graph = new Graph(2);
 		graph.addEdge(1, 1);
 	}
+	
+	@Test(expected = Exception.class)
+	public void test6() throws Exception {
+		Graph graph = new Graph(3);
+		graph.addEdge(0, 1);
+		graph.addEdge(1, 2);
+		graph.addEdge(2, 3);
+	}
 
 }
