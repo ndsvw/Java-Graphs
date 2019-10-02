@@ -35,22 +35,19 @@ public class Graph {
 			explored[i] = false;
 		}
 		HashSet<Integer> reachedHashSet = new HashSet<Integer>();
-		dfs_rec(u, explored);
-		for (int i = 0; i < explored.length; i++) {
-			if (explored[i]) {
-				reachedHashSet.add(i);
+		reachedHashSet = dfs_rec(u, explored, reachedHashSet);
+		return reachedHashSet;
+	}
+
+	protected HashSet<Integer> dfs_rec(int u, boolean[] explored, HashSet<Integer> reachedHashSet) {
+		explored[u] = true;
+		reachedHashSet.add(u);
+		for (int v : adjList.get(u)) {
+			if (!explored[v]) {
+				dfs_rec(v, explored, reachedHashSet);
 			}
 		}
 		return reachedHashSet;
 	}
 
-	private boolean[] dfs_rec(int u, boolean[] explored) {
-		explored[u] = true;
-		for (int v : adjList.get(u)) {
-			if (!explored[v]) {
-				dfs_rec(v, explored);
-			}
-		}
-		return explored;
-	}
 }
